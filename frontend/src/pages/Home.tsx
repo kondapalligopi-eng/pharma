@@ -88,10 +88,9 @@ export function Home() {
         {/* Top orange wave */}
         <svg
           aria-hidden="true"
-          className="absolute inset-x-0 top-0 w-full pointer-events-none"
+          className="absolute inset-x-0 top-0 w-full pointer-events-none h-[15%] md:h-[28%]"
           viewBox="0 0 1440 220"
           preserveAspectRatio="none"
-          style={{ height: '28%' }}
         >
           <path
             fill="#f97316"
@@ -102,10 +101,9 @@ export function Home() {
         {/* Bottom red wave */}
         <svg
           aria-hidden="true"
-          className="absolute inset-x-0 bottom-0 w-full pointer-events-none"
+          className="absolute inset-x-0 bottom-0 w-full pointer-events-none h-[15%] md:h-[28%]"
           viewBox="0 0 1440 220"
           preserveAspectRatio="none"
-          style={{ height: '28%' }}
         >
           <defs>
             <linearGradient id="brightwell-wave" x1="0" x2="1" y1="0" y2="1">
@@ -120,17 +118,17 @@ export function Home() {
         </svg>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full py-20 lg:py-28">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 w-full py-10 sm:py-14 lg:py-28">
             <div className="max-w-xl">
-              <p className="text-[11px] sm:text-xs font-bold tracking-[0.3em] text-primary-700 mb-3 uppercase">
+              <p className="text-[11px] sm:text-xs font-bold tracking-[0.3em] text-primary-700 mb-2 sm:mb-3 uppercase">
                 Research · Quality · Care
               </p>
-              <h1 className="text-4xl lg:text-5xl font-extrabold uppercase tracking-tight leading-[1.05] mb-4 bg-gradient-to-r from-accent-500 via-primary-600 to-primary-700 bg-clip-text text-transparent">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight leading-[1.05] mb-3 sm:mb-4 bg-gradient-to-r from-accent-500 via-primary-600 to-primary-700 bg-clip-text text-transparent">
                 Trusted Medicines
                 <br />
                 For Healthier Lives
               </h1>
-              <p className="text-base lg:text-lg text-warm-700 mb-6 leading-relaxed">
+              <p className="text-sm sm:text-base lg:text-lg text-warm-700 mb-4 sm:mb-6 leading-relaxed">
                 Brightwell Pharma is a research-driven pharmaceutical company
                 developing high-quality medicines for diabetes, cholesterol, and
                 hypertension care — built to international quality standards.
