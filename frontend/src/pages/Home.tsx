@@ -1,10 +1,23 @@
+import { useState } from 'react';
+
+const NAV_LINKS = [
+  { href: '#about', label: 'About' },
+  { href: '#products', label: 'Products' },
+  { href: '#therapies', label: 'Therapies' },
+  { href: '#quality', label: 'Quality' },
+  { href: '#contact', label: 'Contact' },
+];
+
 export function Home() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const closeMobileMenu = () => setMobileMenuOpen(false);
+
   return (
     <div className="flex flex-col">
       {/* Top bar / brand */}
       <header className="bg-white border-b border-warm-200 sticky top-0 z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <a href="#top" className="flex items-center">
+          <a href="#top" className="flex items-center" onClick={closeMobileMenu}>
             <img
               src="/pharmalogo.png"
               alt="Brightwell Pharma"
@@ -12,11 +25,11 @@ export function Home() {
             />
           </a>
           <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-warm-700">
-            <a href="#about" className="hover:text-primary-700 transition-colors">About</a>
-            <a href="#products" className="hover:text-primary-700 transition-colors">Products</a>
-            <a href="#therapies" className="hover:text-primary-700 transition-colors">Therapies</a>
-            <a href="#quality" className="hover:text-primary-700 transition-colors">Quality</a>
-            <a href="#contact" className="hover:text-primary-700 transition-colors">Contact</a>
+            {NAV_LINKS.map(({ href, label }) => (
+              <a key={href} href={href} className="hover:text-primary-700 transition-colors">
+                {label}
+              </a>
+            ))}
           </nav>
           <a
             href="#contact"
@@ -24,7 +37,47 @@ export function Home() {
           >
             Get In Touch
           </a>
+          <button
+            type="button"
+            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileMenuOpen}
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
+            className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md text-warm-700 hover:bg-warm-100 transition-colors"
+          >
+            {mobileMenuOpen ? (
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M6 18L18 6" />
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+              </svg>
+            )}
+          </button>
         </div>
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t border-warm-200 bg-white shadow-lg">
+            <nav className="flex flex-col px-4 py-3 gap-1 text-sm font-medium text-warm-700">
+              {NAV_LINKS.map(({ href, label }) => (
+                <a
+                  key={href}
+                  href={href}
+                  onClick={closeMobileMenu}
+                  className="px-3 py-3 rounded-md hover:bg-primary-50 hover:text-primary-700 transition-colors"
+                >
+                  {label}
+                </a>
+              ))}
+              <a
+                href="#contact"
+                onClick={closeMobileMenu}
+                className="mt-2 inline-flex items-center justify-center px-4 py-3 rounded-full bg-primary-600 hover:bg-primary-700 text-white text-xs font-bold tracking-[0.15em] uppercase transition-all shadow"
+              >
+                Get In Touch
+              </a>
+            </nav>
+          </div>
+        )}
       </header>
 
       {/* Hero — carton-inspired layout: orange top wave, white middle, red bottom wave */}
