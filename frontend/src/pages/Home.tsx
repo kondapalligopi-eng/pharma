@@ -4,22 +4,12 @@ export function Home() {
       {/* Top bar / brand */}
       <header className="bg-white border-b border-warm-200 sticky top-0 z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <a href="#top" className="flex items-center gap-2">
-            {/* Sun-burst mark echoing the brightwell wordmark icon on the cartons */}
-            <span aria-hidden="true" className="relative w-9 h-9">
-              <span className="absolute inset-0 rounded-full bg-gradient-to-br from-accent-400 to-primary-500 shadow-md" />
-              <span className="absolute inset-0 flex items-center justify-center text-white text-lg">✦</span>
-            </span>
-            <span
-              className="text-2xl tracking-[0.04em] lowercase leading-none"
-              style={{ fontFamily: '"Bebas Neue", "Inter", system-ui, sans-serif' }}
-            >
-              <span className="text-accent-600">bright</span>
-              <span className="text-primary-600">well</span>
-              <span className="text-warm-700 ml-2 uppercase tracking-[0.15em] text-base align-middle">
-                Pharma
-              </span>
-            </span>
+          <a href="#top" className="flex items-center">
+            <img
+              src="/pharmalogo.png"
+              alt="Brightwell Pharma"
+              className="h-10 w-auto rounded-md"
+            />
           </a>
           <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-warm-700">
             <a href="#about" className="hover:text-primary-700 transition-colors">About</a>
@@ -37,17 +27,32 @@ export function Home() {
         </div>
       </header>
 
-      {/* Hero — red wave layout echoing the carton design */}
+      {/* Hero — carton-inspired layout: orange top wave, white middle, red bottom wave */}
       <section
         id="top"
         className="relative overflow-hidden bg-white"
       >
-        {/* Decorative red wave inspired by the MithGlim cartons */}
+        {/* Top orange wave */}
         <svg
           aria-hidden="true"
-          className="absolute inset-x-0 top-0 w-full h-full text-primary-600"
-          viewBox="0 0 1440 600"
+          className="absolute inset-x-0 top-0 w-full pointer-events-none"
+          viewBox="0 0 1440 220"
           preserveAspectRatio="none"
+          style={{ height: '28%' }}
+        >
+          <path
+            fill="#f97316"
+            d="M0,0 L1440,0 L1440,140 C1350,210 1170,210 1080,140 C990,70 810,70 720,140 C630,210 450,210 360,140 C270,70 90,70 0,140 Z"
+          />
+        </svg>
+
+        {/* Bottom red wave */}
+        <svg
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 w-full pointer-events-none"
+          viewBox="0 0 1440 220"
+          preserveAspectRatio="none"
+          style={{ height: '28%' }}
         >
           <defs>
             <linearGradient id="brightwell-wave" x1="0" x2="1" y1="0" y2="1">
@@ -57,71 +62,58 @@ export function Home() {
           </defs>
           <path
             fill="url(#brightwell-wave)"
-            d="M0,0 L1440,0 L1440,360 C1180,470 940,300 700,360 C460,420 240,540 0,460 Z"
-          />
-          <path
-            fill="#f97316"
-            opacity="0.85"
-            d="M0,0 L1440,0 L1440,260 C1200,340 960,200 720,260 C480,320 240,400 0,340 Z"
+            d="M0,80 C90,10 270,10 360,80 C450,150 630,150 720,80 C810,10 990,10 1080,80 C1170,150 1350,150 1440,80 L1440,220 L0,220 Z"
           />
         </svg>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[480px] lg:min-h-[560px] flex items-center">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full py-16 lg:py-20">
-            <div className="max-w-xl text-white">
-              <p className="text-[11px] sm:text-xs font-semibold tracking-[0.3em] text-accent-100 mb-3 uppercase">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full py-20 lg:py-28">
+            <div className="max-w-xl">
+              <p className="text-[11px] sm:text-xs font-bold tracking-[0.3em] text-primary-700 mb-3 uppercase">
                 Research · Quality · Care
               </p>
-              <h1 className="text-4xl lg:text-5xl font-extrabold uppercase tracking-tight leading-[1.05] mb-4 drop-shadow-sm">
+              <h1 className="text-4xl lg:text-5xl font-extrabold uppercase tracking-tight leading-[1.05] mb-4 bg-gradient-to-r from-accent-500 via-primary-600 to-primary-700 bg-clip-text text-transparent">
                 Trusted Medicines
                 <br />
                 For Healthier Lives
               </h1>
-              <p className="text-base lg:text-lg text-white/90 mb-6 leading-relaxed">
+              <p className="text-base lg:text-lg text-warm-700 mb-6 leading-relaxed">
                 Brightwell Pharma is a research-driven pharmaceutical company
-                developing high-quality medicines across cardiology, diabetology,
-                respiratory care, and general wellness.
+                developing high-quality medicines for diabetes, cholesterol, and
+                hypertension care — built to international quality standards.
               </p>
               <div className="flex flex-wrap gap-3">
                 <a
                   href="#products"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-accent-50 text-primary-700 text-sm font-bold tracking-[0.15em] uppercase ring-2 ring-white/50 transition-all shadow-lg"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary-600 hover:bg-primary-700 text-white text-sm font-bold tracking-[0.15em] uppercase transition-all shadow-lg"
                 >
                   Our Products
                 </a>
                 <a
                   href="#contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary-700/30 hover:bg-primary-700/50 text-white text-sm font-bold tracking-[0.15em] uppercase ring-2 ring-white/40 hover:ring-white/70 transition-all"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-primary-50 text-primary-700 text-sm font-bold tracking-[0.15em] uppercase ring-2 ring-primary-300 hover:ring-primary-500 transition-all"
                 >
                   Contact Us
                 </a>
               </div>
             </div>
 
-            <div className="hidden lg:flex items-end justify-end">
+            <div className="hidden lg:flex items-center justify-end">
               {/* Wordmark card — mirrors the carton brand block */}
               <div className="bg-white rounded-2xl shadow-2xl ring-1 ring-warm-200 p-7 max-w-sm">
-                <div className="flex items-center gap-2 mb-2">
-                  <span aria-hidden="true" className="text-2xl text-accent-500">✦</span>
-                  <p
-                    className="text-4xl tracking-[0.02em] lowercase leading-none"
-                    style={{ fontFamily: '"Bebas Neue", "Inter", system-ui, sans-serif' }}
-                  >
-                    <span className="text-accent-600">bright</span>
-                    <span className="text-primary-600">well</span>
-                  </p>
-                </div>
+                <img
+                  src="/pharmalogo.png"
+                  alt="Brightwell Pharma"
+                  className="h-16 w-auto rounded-md mb-3"
+                />
                 <div className="h-0.5 w-20 bg-primary-500 rounded-full mb-3" />
-                <p className="text-2xl font-extrabold uppercase tracking-tight text-warm-900 leading-none">
-                  Pharma
-                </p>
-                <p className="text-xs font-light uppercase tracking-[0.3em] text-warm-500 mt-2">
+                <p className="text-xs font-light uppercase tracking-[0.3em] text-warm-500">
                   Science · Wellness · Care
                 </p>
-                <ul className="mt-5 grid grid-cols-2 gap-2">
-                  {['Cardiology', 'Diabetology', 'Respiratory', 'Wellness'].map((label) => (
+                <ul className="mt-5 flex flex-wrap gap-2">
+                  {['Diabetic', 'Cholesterol', 'Hypertension'].map((label) => (
                     <li key={label}>
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold tracking-[0.15em] uppercase bg-primary-50 text-primary-700 ring-1 ring-primary-200">
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-primary-50 text-primary-700 ring-1 ring-primary-200 whitespace-nowrap">
                         {label}
                       </span>
                     </li>
@@ -129,6 +121,95 @@ export function Home() {
                 </ul>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured products — the brands shown on the cartons */}
+      <section id="products" className="pt-10 pb-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <p className="text-[11px] sm:text-xs font-semibold tracking-[0.3em] text-primary-700 uppercase mb-2">
+              Featured Brands
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-warm-900">
+              A growing portfolio of trusted medicines
+            </h2>
+            <div className="mx-auto mt-3 h-0.5 w-16 bg-accent-500 rounded-full" />
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                name: 'Mithglim M1',
+                composition: 'Glimepiride 1mg + Metformin Hydrochloride (PR) Tablets',
+                tint: 'from-primary-500 to-primary-700',
+                pill: 'Diabetic',
+              },
+              {
+                name: 'Mithglim M2',
+                composition: 'Glimepiride 2mg + Metformin Hydrochloride (PR) Tablets',
+                tint: 'from-primary-600 to-accent-600',
+                pill: 'Diabetic',
+              },
+              {
+                name: 'Mithglim MV1',
+                composition: 'Voglibose, Glimepiride 1mg & Metformin Hydrochloride SR Tablets',
+                tint: 'from-sky-500 to-sky-700',
+                pill: 'Diabetic',
+              },
+              {
+                name: 'Mithglim MV2',
+                composition: 'Voglibose, Glimepiride 2mg & Metformin Hydrochloride SR Tablets',
+                tint: 'from-sky-600 to-primary-600',
+                pill: 'Diabetic',
+              },
+              {
+                name: 'Mithstatin 20mg',
+                composition: 'Rosuvastatin Tablets 20mg',
+                tint: 'from-accent-500 to-primary-600',
+                pill: 'Cholesterol',
+              },
+              {
+                name: 'Mithstatin Gold 20mg',
+                composition: 'Rosuvastatin, Aspirin & Clopidogrel Capsules',
+                tint: 'from-accent-400 to-accent-600',
+                pill: 'Cholesterol',
+              },
+              {
+                name: 'Mithtelme CL40',
+                composition: 'Telmisartan & Cilnidipine Tablets',
+                tint: 'from-primary-400 to-accent-500',
+                pill: 'Hypertension',
+              },
+              {
+                name: 'Mithtelme AMH',
+                composition: 'Telmisartan, Amlodipine & Hydrochlorothiazide Tablets',
+                tint: 'from-primary-700 to-accent-600',
+                pill: 'Hypertension',
+              },
+            ].map(({ name, composition, tint, pill }) => (
+              <article
+                key={name}
+                className="rounded-2xl border border-warm-200 bg-white overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all"
+              >
+                <div className={`h-24 bg-gradient-to-r ${tint} relative`}>
+                  <div className="absolute inset-0 opacity-20" style={{
+                    backgroundImage: "radial-gradient(circle at 80% 20%, white 0%, transparent 40%)",
+                  }} />
+                  <span className="absolute top-3 right-3 inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase bg-white/90 text-primary-700">
+                    {pill}
+                  </span>
+                </div>
+                <div className="p-5">
+                  <h3 className="text-lg font-extrabold text-warm-900 tracking-tight">
+                    {name}
+                  </h3>
+                  <p className="text-sm text-warm-600 mt-1.5 leading-relaxed">
+                    {composition}
+                  </p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -195,83 +276,6 @@ export function Home() {
         </div>
       </section>
 
-      {/* Featured products — the brands shown on the cartons */}
-      <section id="products" className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <p className="text-[11px] sm:text-xs font-semibold tracking-[0.3em] text-primary-700 uppercase mb-2">
-              Featured Brands
-            </p>
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-warm-900">
-              A growing portfolio of trusted medicines
-            </h2>
-            <div className="mx-auto mt-3 h-0.5 w-16 bg-accent-500 rounded-full" />
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                name: 'MithGlim-M1 / M2',
-                composition: 'Glimepiride + Metformin Hydrochloride (PR) Tablets',
-                tint: 'from-primary-500 to-primary-700',
-                pill: 'Diabetology',
-              },
-              {
-                name: 'MithGlim-MV1 / MV2',
-                composition: 'Voglibose, Glimepiride & Metformin Hydrochloride SR Tablets',
-                tint: 'from-sky-500 to-sky-700',
-                pill: 'Diabetology',
-              },
-              {
-                name: 'MithTelme-AMH',
-                composition: 'Telmisartan, Amlodipine & Hydrochlorothiazide Tablets',
-                tint: 'from-primary-400 to-accent-500',
-                pill: 'Cardiology',
-              },
-              {
-                name: 'MithTelme-CL 40',
-                composition: 'Telmisartan & Cilnidipine Tablets',
-                tint: 'from-accent-500 to-primary-600',
-                pill: 'Cardiology',
-              },
-              {
-                name: 'VIVI-D3',
-                composition: 'Cholecalciferol Soft Gelatin Capsules USP 60,000 IU',
-                tint: 'from-accent-400 to-accent-600',
-                pill: 'Wellness',
-              },
-              {
-                name: 'DAPATHANQ-VD 10/100',
-                composition: 'Dapagliflozin & Vildagliptin Sustained Release Tablets',
-                tint: 'from-primary-600 to-accent-600',
-                pill: 'Diabetology',
-              },
-            ].map(({ name, composition, tint, pill }) => (
-              <article
-                key={name}
-                className="rounded-2xl border border-warm-200 bg-white overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all"
-              >
-                <div className={`h-24 bg-gradient-to-r ${tint} relative`}>
-                  <div className="absolute inset-0 opacity-20" style={{
-                    backgroundImage: "radial-gradient(circle at 80% 20%, white 0%, transparent 40%)",
-                  }} />
-                  <span className="absolute top-3 right-3 inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase bg-white/90 text-primary-700">
-                    {pill}
-                  </span>
-                </div>
-                <div className="p-5">
-                  <h3 className="text-lg font-extrabold text-warm-900 tracking-tight">
-                    {name}
-                  </h3>
-                  <p className="text-sm text-warm-600 mt-1.5 leading-relaxed">
-                    {composition}
-                  </p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Therapeutic areas */}
       <section id="therapies" className="py-16 bg-primary-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -284,13 +288,11 @@ export function Home() {
             </h2>
             <div className="mx-auto mt-3 h-0.5 w-16 bg-accent-500 rounded-full" />
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-3 gap-6 max-w-3xl mx-auto">
             {[
-              { label: 'Cardiology', icon: '❤️', tint: 'from-primary-200 to-primary-400' },
-              { label: 'Diabetology', icon: '🩸', tint: 'from-accent-200 to-accent-400' },
-              { label: 'Respiratory', icon: '🫁', tint: 'from-sky-200 to-sky-400' },
-              { label: 'Wellness', icon: '🌿', tint: 'from-emerald-200 to-emerald-400' },
-              { label: 'Pain Care', icon: '💊', tint: 'from-violet-200 to-violet-400' },
+              { label: 'Diabetic', icon: '🩸', tint: 'from-accent-200 to-accent-400' },
+              { label: 'Cholesterol', icon: '🫀', tint: 'from-sky-200 to-sky-400' },
+              { label: 'Hypertension', icon: '❤️', tint: 'from-primary-200 to-primary-400' },
             ].map(({ label, icon, tint }) => (
               <div key={label} className="group block text-center">
                 <div className={`relative mx-auto aspect-square w-24 sm:w-28 rounded-full bg-gradient-to-br ${tint} ring-1 ring-warm-200 group-hover:ring-primary-400 transition flex items-center justify-center`}>
