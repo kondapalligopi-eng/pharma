@@ -10,7 +10,8 @@ export default defineConfig({
     },
   },
   server: {
-    port: 3000,
+    // 3001 so pharma can run alongside petdogs (which uses 3000)
+    port: 3001,
   },
   ssgOptions: {
     entry: 'src/main.tsx',
